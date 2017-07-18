@@ -4,5 +4,5 @@
 
 export const CONFIG = {
   title: "HACKERNEWS",
-  noBorder: false
+  API_URL: "https://hacker-news.firebaseio.com"
 }

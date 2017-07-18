@@ -1,0 +1,29 @@
+<ion-card *ngIf="item">
+  <ion-card-header>
+    <div>
+      <a [href]="item.url">{{item.title}}</a>
+    </div>
+    <div class="meta">
+      by <span class="user">{{item.by}}</span>
+      <span class="timestamp">{{item.time}}</span>
+    </div>
+  </ion-card-header>
+
+  <ion-card-content>
+    {{item.text}}
+  </ion-card-content>
+
+  <ion-row no-padding>
+    <ion-col>
+      <button ion-button clear small color="hacker" >
+        {{item.score}} points
+      </button>
+    </ion-col>
+    <ion-col>
+      <button ion-button clear small color="hacker" *ngIf="item.type=='story' || item.type=='poll'">
+        <div *ngIf="item.descendants!=1">{{item.descendants}} Comments</div>
+        <div *ngIf="item.descendants==1">1 Comment</div>
+      </button>
+    </ion-col>
+  </ion-row>
+</ion-card>

@@ -6,6 +6,8 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-
+<ion-content>
+  <div *ngFor="let item of items">
+    <item-card [itemId]="item"></item-card>
+  </div>
 </ion-content>

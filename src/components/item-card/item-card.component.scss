@@ -1,0 +1,14 @@
+item-card{
+  ion-card-header {
+    white-space: normal;
+
+    .meta{
+      font-size: .85em;
+      color: #828282;
+      margin-top: 0.5em;
+      .user{
+        color:$hacker-blue;
+      }
+    }
+  }
+}
