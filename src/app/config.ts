@@ -3,6 +3,6 @@
  */
 
 export const CONFIG = {
-  title: "HACKERNEWS",
+  title: "HACKER NEWS",
   API_URL: "https://hacker-news.firebaseio.com"
 }

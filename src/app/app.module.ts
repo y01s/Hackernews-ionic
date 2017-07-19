@@ -16,6 +16,9 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import {ItemCardComponent} from "../components/item-card/item-card.component";
 import {AppService} from "./app.service";
 import {HttpModule} from "@angular/http";
+import {CommentsPage} from "../pages/comments/comments";
+import {CommentCardComponent} from "../components/comment-card/comment-card.component";
+import {CardHeaderComponent} from "../components/card-header/card-header.component";
 
 @NgModule({
   declarations: [
@@ -27,7 +30,10 @@ import {HttpModule} from "@angular/http";
     AskPage,
     JobsPage,
     TabsPage,
-    ItemCardComponent
+    CommentsPage,
+    ItemCardComponent,
+    CommentCardComponent,
+    CardHeaderComponent
   ],
   imports: [
     BrowserModule,
@@ -44,7 +50,10 @@ import {HttpModule} from "@angular/http";
     ShowPage,
     AskPage,
     JobsPage,
-    TabsPage
+    TabsPage,
+    CommentsPage,
+    CommentCardComponent,
+    CardHeaderComponent
   ],
   providers: [
     StatusBar,

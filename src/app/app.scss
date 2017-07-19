@@ -17,3 +17,24 @@
 .scroll-content{
   background-color: $hacker-background;
 }
+
+ion-card-header {
+  white-space: normal;
+
+  .title {
+    a {
+      color: #33353a;
+      font-weight: 500;
+      text-decoration: none;
+    }
+  }
+}
+
+.meta{
+  font-size: .85em;
+  color: #828282;
+  margin-top: 0.5em;
+  .user{
+    color:$hacker-blue;
+  }
+}

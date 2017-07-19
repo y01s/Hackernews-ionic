@@ -1,0 +1,19 @@
+<ion-header no-border>
+  <ion-navbar color="hacker">
+    <ion-title>
+      Comments
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <ion-card-header>
+      <card-header [item]="item"></card-header>
+    </ion-card-header>
+  </ion-card>
+
+  <div *ngFor="let commentId of item.kids | slice:0:10">
+    <comment-card [itemId]="commentId" [commentLevel]="0"></comment-card>
+  </div>
+</ion-content>

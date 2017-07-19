@@ -3,18 +3,20 @@ import {NavController, LoadingController} from 'ionic-angular';
 import {CONFIG} from "../../app/config";
 import {Item} from "../../models/item.model";
 import {AppService} from "../../app/app.service";
-import {CommentsPage} from "../../pages/comments/comments";
 
 
 @Component({
-  selector: 'item-card',
-  templateUrl: 'item-card.component.html'
+  selector: 'comment-card',
+  templateUrl: 'comment-card.component.html'
 })
-export class ItemCardComponent implements OnInit{
+export class CommentCardComponent implements OnInit{
 
   title=CONFIG.title;
   @Input() itemId;
+  @Input() commentLevel;
   item:Item;
+  isReplies=false;
+  repliesOn=false;
 
   constructor(public navCtrl: NavController,public appService:AppService,public loading:LoadingController) {
 
@@ -23,6 +25,7 @@ export class ItemCardComponent implements OnInit{
   ngOnInit(){
     this.appService.getItemById(this.itemId).subscribe(
       res=>{
+
         this.item=res;
       },
       err=>{
@@ -31,8 +34,12 @@ export class ItemCardComponent implements OnInit{
     )
   }
 
-  openComments(){
-    this.navCtrl.parent.parent.push(CommentsPage,{item:this.item});
+  offReplies(){
+    this.isReplies=false;
   }
 
+  onReplies(){
+    this.repliesOn=true;
+    this.isReplies=true;
+  }
 }

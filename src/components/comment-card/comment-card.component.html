@@ -1,0 +1,39 @@
+<div class="level-{{commentLevel}}">
+  <ion-card *ngIf="item">
+    <ion-card-header>
+      <div class="title">
+        <a [href]="item.url">{{item.title}}</a>
+      </div>
+      <div class="meta">
+        <span class="user">{{item.by}}</span>
+        <span class="timestamp">{{item.time}}</span>
+      </div>
+    </ion-card-header>
+
+    <ion-card-content>
+      {{item.text | slice:0:150}}
+      <span *ngIf="item.text && item.text.length>150">... Show all</span>
+    </ion-card-content>
+
+    <ion-row no-padding>
+      <ion-col>
+        <button ion-button clear small color="hacker"
+                *ngIf="!isReplies && item.kids && item.kids.length>0" (click)="onReplies()" >
+          <div *ngIf="item.kids.length!=1">[+] {{item.kids.length}} Replies</div>
+          <div *ngIf="item.kids.length==1">[+] 1 Reply</div>
+        </button>
+        <button ion-button clear small color="hacker" *ngIf="isReplies"
+                class="hide-replies" (click)="offReplies()" >
+          <div class="minus-sign">[-]</div>
+        </button>
+      </ion-col>
+    </ion-row>
+    <div class="reply-line" *ngIf="commentLevel>0">
+    </div>
+  </ion-card>
+  <div *ngIf="repliesOn" [hidden]="!isReplies">
+    <div *ngFor="let replyId of item.kids">
+      <comment-card [itemId]="replyId" [commentLevel]="commentLevel+1"></comment-card>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,72 @@
+comment-card{
+  .card{
+    box-shadow: none;
+  }
+
+  $padding-left-level:5%;
+  .level-1{
+    ion-card{
+      padding-left: $padding-left-level;
+    }
+  }
+  .level-2{
+    ion-card{
+      padding-left: 2*$padding-left-level;
+    }
+  }
+  .level-3{
+    ion-card{
+      padding-left: 3*$padding-left-level;
+    }
+  }
+  .level-4{
+    ion-card{
+      padding-left: 4*$padding-left-level;
+    }
+  }
+  .level-5{
+    ion-card{
+      padding-left: 5*$padding-left-level;
+    }
+  }
+  .level-6{
+    ion-card{
+      padding-left: 6*$padding-left-level;
+    }
+  }
+  .level-7{
+    ion-card{
+      padding-left: 7*$padding-left-level;
+    }
+  }
+  .level-8{
+    ion-card{
+      padding-left: 8*$padding-left-level;
+    }
+  }
+  .level-9{
+    ion-card{
+      padding-left: 9*$padding-left-level;
+    }
+  }
+  .level-10{
+    ion-card{
+      padding-left: 10*$padding-left-level;
+    }
+  }
+  position: relative;
+  .reply-line{
+    position: absolute;
+    width: 2px;
+    height: 100%;
+    background-color: $hacker-grey;
+    top: 0;
+    z-index: 404;
+  }
+  .hide-replies{
+    padding: 1%;
+    .minus-sign{
+      letter-spacing: 3px;
+    }
+  }
+}
