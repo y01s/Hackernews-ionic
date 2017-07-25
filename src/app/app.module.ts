@@ -19,6 +19,7 @@ import {HttpModule} from "@angular/http";
 import {CommentsPage} from "../pages/comments/comments";
 import {CommentCardComponent} from "../components/comment-card/comment-card.component";
 import {CardHeaderComponent} from "../components/card-header/card-header.component";
+import {SharedModule} from "./shared.module";
 
 @NgModule({
   declarations: [
@@ -38,6 +39,7 @@ import {CardHeaderComponent} from "../components/card-header/card-header.compone
   imports: [
     BrowserModule,
     HttpModule,
+    SharedModule,
     IonicModule.forRoot(MyApp,{
     })
   ],
