@@ -5,5 +5,5 @@
 <div class="meta">
   {{item.score}} points |
   by <span class="user">{{item.by}}</span>
-  <span class="timestamp">{{item.time}}</span>
+  <span class="timestamp"> | {{item.time*1000 | timeAgo}}</span>
 </div>
