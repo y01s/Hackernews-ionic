@@ -11,18 +11,29 @@ import {AppService} from "../../app/app.service";
 })
 export class CommentCardComponent implements OnInit{
 
+  charsShown:number;
+  isHidden:boolean;
+  isReplies:boolean;
+  item:Item;
+  MAX_CHARS_SHOWN=150;
+  repliesOn=false;
   title=CONFIG.title;
+
   @Input() itemId;
   @Input() commentLevel;
-  item:Item;
-  isReplies=false;
-  repliesOn=false;
 
   constructor(public navCtrl: NavController,public appService:AppService,public loading:LoadingController) {
 
   }
 
+  hideAll(){
+    this.isHidden=true;
+    this.charsShown=this.MAX_CHARS_SHOWN;
+  }
+
   ngOnInit(){
+    this.hideAll();
+    this.isReplies=false;
     this.appService.getItemById(this.itemId).subscribe(
       res=>{
 
@@ -41,5 +52,10 @@ export class CommentCardComponent implements OnInit{
   onReplies(){
     this.repliesOn=true;
     this.isReplies=true;
+  }
+
+  showAll(){
+    this.isHidden=false;
+    this.charsShown=this.item.text.length;
   }
 }
