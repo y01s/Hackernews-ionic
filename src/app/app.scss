@@ -34,7 +34,12 @@ ion-card-header {
   font-size: .85em;
   color: #828282;
   margin-top: 0.5em;
+  .score{
+    font-weight: bold;
+    color:$hacker-red;
+  }
   .user{
     color:$hacker-blue;
+    font-weight: bold;
   }
 }
