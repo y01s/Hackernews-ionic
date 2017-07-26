@@ -20,7 +20,7 @@ export class TimeAgoPipe implements PipeTransform, OnDestroy {
   constructor(private cdRef: ChangeDetectorRef, private ngZone: NgZone) {
   }
 
-  transform(value: Date | moment.Moment,local?:string ,omitSuffix?: boolean): string {
+  transform(value: Date | moment.Moment,isDays?:boolean,local?:string ,omitSuffix?: boolean): string {
 
     if (this.hasChanged(value, omitSuffix)) {
       this.lastTime = this.getTime(value);
@@ -33,14 +33,14 @@ export class TimeAgoPipe implements PipeTransform, OnDestroy {
     } else {
       this.createTimer();
     }
-
-    if(this.lastText.indexOf("day")!=-1){
-      this.lastText=moment(value).toDate().toLocaleDateString('en-US',{ month:'long', day:'numeric',hour:'numeric',minute:"numeric" });
+    if(!isDays){
+      if(this.lastText.indexOf("day")!=-1){
+        this.lastText=moment(value).toDate().toLocaleDateString('en-US',{ month:'long', day:'numeric',hour:'numeric',minute:"numeric" });
+      }
+      else if(this.lastText.indexOf("year")!=-1){
+        this.lastText=moment(value).toDate().toLocaleDateString('en-US',{ year: "numeric",month:'long', day:'numeric',hour:'numeric',minute:"numeric" });
+      }
     }
-    else if(this.lastText.indexOf("year")!=-1){
-      this.lastText=moment(value).toDate().toLocaleDateString('en-US',{ year: "numeric",month:'long', day:'numeric',hour:'numeric',minute:"numeric" });
-    }
-
     return this.lastText;
   }
 

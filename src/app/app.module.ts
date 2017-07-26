@@ -20,6 +20,7 @@ import {CommentsPage} from "../pages/comments/comments";
 import {CommentCardComponent} from "../components/comment-card/comment-card.component";
 import {CardHeaderComponent} from "../components/card-header/card-header.component";
 import {SharedModule} from "./shared.module";
+import {UserProfilePage} from "../pages/user-profile/user-profile";
 
 @NgModule({
   declarations: [
@@ -32,6 +33,7 @@ import {SharedModule} from "./shared.module";
     JobsPage,
     TabsPage,
     CommentsPage,
+    UserProfilePage,
     ItemCardComponent,
     CommentCardComponent,
     CardHeaderComponent
@@ -54,8 +56,7 @@ import {SharedModule} from "./shared.module";
     JobsPage,
     TabsPage,
     CommentsPage,
-    CommentCardComponent,
-    CardHeaderComponent
+    UserProfilePage,
   ],
   providers: [
     StatusBar,

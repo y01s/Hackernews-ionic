@@ -4,6 +4,6 @@
 
 <div class="meta">
   <span class="score">{{item.score}} points</span> |
-  by <span class="user">{{item.by}}</span>
+  by <span class="user" (click)="openUserProfile(item.by)">{{item.by}}</span>
   <span class="timestamp"> | {{item.time*1000 | timeAgo}}</span>
 </div>

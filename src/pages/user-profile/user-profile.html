@@ -1,0 +1,37 @@
+<ion-header no-border>
+  <ion-navbar color="hacker">
+    <ion-title>
+      User: {{user.id}}
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-card class="user-card" *ngIf="user.id">
+    <ion-card-header>
+      <div>
+        <div class="username">
+          <strong>User: </strong> {{user.id}}
+        </div>
+        <div class="created">
+          <strong>Created: </strong> {{user.created*1000 | timeAgo:true}}
+          <div>
+            ( {{user.created*1000 | timeAgo}} )
+          </div>
+        </div>
+        <div class="karma">
+          <strong>Karma: </strong> {{user.karma}}
+        </div>
+        <div class="about" *ngIf="user.about">
+          <strong>About: </strong> {{user.about}}
+        </div>
+        <div class="submissions" (click)="openUserSubmissions()">
+          <strong>submissions</strong>
+        </div>
+
+      </div>
+    </ion-card-header>
+  </ion-card>
+
+
+</ion-content>

@@ -29,6 +29,13 @@ export class AppService {
       .catch(this.handleError);
   }
 
+  public getUserById (username): Observable<any>{
+
+    return this.http.get(this.SERVER_URL+"/v0/user/"+username+".json",this.options)
+      .map(this.extractData)
+      .catch(this.handleError);
+  }
+
   private extractData(res: Response) :any{
     let body = res.json();
     return body;
