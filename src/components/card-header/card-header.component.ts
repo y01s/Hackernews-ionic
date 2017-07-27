@@ -3,6 +3,7 @@ import {NavController} from 'ionic-angular';
 import {Item} from "../../models/item.model";
 import {CommentsPage} from "../../pages/comments/comments";
 import {UserProfilePage} from "../../pages/user-profile/user-profile";
+import {InAppBrowser} from "@ionic-native/in-app-browser";
 
 
 @Component({
@@ -13,11 +14,17 @@ export class CardHeaderComponent implements OnInit{
 
   @Input() item:Item;
 
-  constructor(public navCtrl: NavController) {
+  constructor(public navCtrl: NavController,public iab:InAppBrowser) {
 
   }
 
   ngOnInit(){
+  }
+
+  openInAppBrower(){
+    let inAppBrower=this.iab.create(this.item.url);
+    console.log(inAppBrower);
+    inAppBrower.show();
   }
 
   openComments(){

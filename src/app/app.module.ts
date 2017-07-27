@@ -21,6 +21,7 @@ import {CommentCardComponent} from "../components/comment-card/comment-card.comp
 import {CardHeaderComponent} from "../components/card-header/card-header.component";
 import {SharedModule} from "./shared.module";
 import {UserProfilePage} from "../pages/user-profile/user-profile";
+import {InAppBrowser} from "@ionic-native/in-app-browser";
 
 @NgModule({
   declarations: [
@@ -61,6 +62,7 @@ import {UserProfilePage} from "../pages/user-profile/user-profile";
   providers: [
     StatusBar,
     SplashScreen,
+    InAppBrowser,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     AppService
   ]
