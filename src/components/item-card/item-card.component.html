@@ -3,8 +3,10 @@
     <card-header [item]="item"></card-header>
   </ion-card-header>
 
-  <ion-card-content>
-    {{item.text}}
+  <ion-card-content *ngIf="item.text">
+    {{item.text | slice:0:charsShown}}
+    <span class="hide-show" *ngIf="item.text.length>charsShown && isHidden" (click)="showAll()">... Show all</span>
+    <span class="hide-show" *ngIf="!isHidden" (click)="hideAll()">Hide</span>
   </ion-card-content>
 
   <ion-row no-padding>

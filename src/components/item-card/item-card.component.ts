@@ -12,6 +12,9 @@ import {CommentsPage} from "../../pages/comments/comments";
 })
 export class ItemCardComponent implements OnInit{
 
+  charsShown:number;
+  isHidden:boolean;
+  MAX_CHARS_SHOWN=CONFIG.MAX_CHARS_SHOWN;
   title=CONFIG.title;
   @Input() itemId;
   item:Item;
@@ -20,7 +23,13 @@ export class ItemCardComponent implements OnInit{
 
   }
 
+  hideAll(){
+    this.isHidden=true;
+    this.charsShown=this.MAX_CHARS_SHOWN;
+  }
+
   ngOnInit(){
+    this.hideAll();
     this.appService.getItemById(this.itemId.$value).subscribe(
       res=>{
         this.item=res;
@@ -33,6 +42,11 @@ export class ItemCardComponent implements OnInit{
 
   openComments(){
     this.navCtrl.parent.parent.push(CommentsPage,{item:this.item});
+  }
+
+  showAll(){
+    this.isHidden=false;
+    this.charsShown=this.item.text.length;
   }
 
 }

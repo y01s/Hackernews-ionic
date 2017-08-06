@@ -12,7 +12,7 @@
 
     <ion-card-content>
       {{item.text | slice:0:charsShown}}
-      <span class="hide-show" *ngIf="item.text && item.text.length>150 && isHidden" (click)="showAll()">... Show all</span>
+      <span class="hide-show" *ngIf="item.text && item.text.length>charsShown && isHidden" (click)="showAll()">... Show all</span>
       <span class="hide-show" *ngIf="!isHidden" (click)="hideAll()">Hide</span>
     </ion-card-content>
 

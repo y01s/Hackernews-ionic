@@ -15,7 +15,7 @@ export class CommentCardComponent implements OnInit{
   isHidden:boolean;
   isReplies:boolean;
   item:Item;
-  MAX_CHARS_SHOWN=150;
+  MAX_CHARS_SHOWN=CONFIG.MAX_CHARS_SHOWN;
   repliesOn=false;
   title=CONFIG.title;
 

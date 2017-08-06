@@ -4,7 +4,8 @@
 
 export const CONFIG = {
   title: "HACKER NEWS",
-  ITEMS_TO_LOAD:10
+  ITEMS_TO_LOAD:10,
+  MAX_CHARS_SHOWN:150,
 };
 
 export const firebaseConfig = {
