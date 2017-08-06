@@ -1,24 +1,26 @@
 import {Component, OnInit} from '@angular/core';
-import {NavController, LoadingController, InfiniteScroll} from 'ionic-angular';
+import {NavController, LoadingController, InfiniteScroll, NavParams} from 'ionic-angular';
 import {CONFIG} from "../../app/config";
 import {AppService} from "../../app/app.service";
 import {Subject} from "rxjs";
 
 @Component({
-  selector: 'page-best',
-  templateUrl: 'best.html'
+  selector: 'page-items',
+  templateUrl: 'items.html'
 })
-export class BestPage implements OnInit{
+export class ItemsPage implements OnInit{
 
-  title=CONFIG.title;
   isLoading=false;
   infiniteScroll:InfiniteScroll;
   items:any;
   itemsToLoad=CONFIG.ITEMS_TO_LOAD;
   loadSubject:Subject<any>;
+  title=CONFIG.title;
+  type:string;
 
-  constructor(public navCtrl: NavController, public appService:AppService,public loading:LoadingController) {
-
+  constructor(public navCtrl: NavController, public appService:AppService,public loading:LoadingController
+              ,public params:NavParams) {
+      this.type=params.data;
   }
 
   fetchOlderItems(infiniteScroll){
@@ -32,7 +34,7 @@ export class BestPage implements OnInit{
     let loading=this.loading.create();
     loading.present();
     this.loadSubject=new Subject<any>();
-    this.appService.getItems(this.loadSubject).subscribe(
+    this.appService.getItems(this.type,this.loadSubject).subscribe(
       res=>{
         loading.dismiss();
         this.items=res;

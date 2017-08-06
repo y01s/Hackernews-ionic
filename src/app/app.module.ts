@@ -3,12 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
 
-import {BestPage} from "../pages/best/best";
-import {TopPage} from "../pages/top/top";
-import {NewPage} from "../pages/new/new";
-import {ShowPage} from "../pages/show/show";
-import {AskPage} from "../pages/ask/ask";
-import {JobsPage} from "../pages/jobs/jobs";
+import {ItemsPage} from "../pages/items/items";
 import { TabsPage } from '../pages/tabs/tabs';
 
 import { StatusBar } from '@ionic-native/status-bar';
@@ -29,12 +24,7 @@ import {firebaseConfig} from "./config";
 @NgModule({
   declarations: [
     MyApp,
-    BestPage,
-    TopPage,
-    NewPage,
-    ShowPage,
-    AskPage,
-    JobsPage,
+    ItemsPage,
     TabsPage,
     CommentsPage,
     UserProfilePage,
@@ -54,12 +44,7 @@ import {firebaseConfig} from "./config";
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    BestPage,
-    TopPage,
-    NewPage,
-    ShowPage,
-    AskPage,
-    JobsPage,
+    ItemsPage,
     TabsPage,
     CommentsPage,
     UserProfilePage,

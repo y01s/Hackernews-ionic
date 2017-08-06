@@ -10,8 +10,8 @@ export class AppService {
 
   constructor(private fireDB:AngularFireDatabase) { }
 
-  public getItems (loadSubject:Subject<any>): Observable<any>{
-    return this.fireDB.list("/v0/beststories", {
+  public getItems (type,loadSubject:Subject<any>): Observable<any>{
+    return this.fireDB.list("/v0/"+type+"stories", {
       query: {limitToFirst: loadSubject}});
   }
 
