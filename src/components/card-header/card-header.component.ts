@@ -22,9 +22,10 @@ export class CardHeaderComponent implements OnInit{
   }
 
   openInAppBrower(){
-    let inAppBrower=this.iab.create(this.item.url);
-    console.log(inAppBrower);
-    inAppBrower.show();
+    if(this.item.url){
+      let inAppBrower=this.iab.create(this.item.url);
+      inAppBrower.show();
+    }
   }
 
   openComments(){
