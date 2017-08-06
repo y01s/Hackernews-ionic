@@ -1,7 +1,5 @@
-import {Component, OnInit, Input} from '@angular/core';
-import {NavController, LoadingController, NavParams} from 'ionic-angular';
-import {CONFIG} from "../../app/config";
-import {AppService} from "../../app/app.service";
+import {Component, OnInit} from '@angular/core';
+import {NavParams} from 'ionic-angular';
 import {Item} from "../../models/item.model";
 
 @Component({
@@ -11,8 +9,17 @@ import {Item} from "../../models/item.model";
 export class CommentsPage implements OnInit{
 
   item:Item;
-  constructor(public navCtrl: NavController,public params: NavParams) {
+  shownComments=20;
 
+  constructor(public params: NavParams) {
+
+  }
+
+  fetchOlderItems(infiniteScroll){
+    this.shownComments+=10;
+    setTimeout(()=>{
+      infiniteScroll.complete();
+    },1000);
   }
 
   ngOnInit(){

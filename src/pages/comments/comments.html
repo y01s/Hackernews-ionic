@@ -7,13 +7,23 @@
 </ion-header>
 
 <ion-content>
-  <ion-card>
+  <ion-card class="commented-item">
     <ion-card-header>
       <card-header [item]="item"></card-header>
     </ion-card-header>
   </ion-card>
-
-  <div *ngFor="let commentId of item.kids | slice:0:10">
-    <comment-card [itemId]="commentId" [commentLevel]="0"></comment-card>
+  <div class="comments">
+    <div *ngFor="let commentId of item.kids | slice:0:shownComments">
+      <comment-card [itemId]="commentId" [commentLevel]="0"></comment-card>
+    </div>
   </div>
+
+  <ion-infinite-scroll #infiniteItems (ionInfinite)="fetchOlderItems($event)"
+                       [enabled]="item.kids.length>shownComments">
+    <ion-infinite-scroll-content
+      loadingSpinner="bubbles"
+      loadingText="Loading ...">
+    </ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+
 </ion-content>
