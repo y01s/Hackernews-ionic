@@ -41,7 +41,9 @@ export class ItemCardComponent implements OnInit{
   }
 
   openComments(){
-    this.navCtrl.parent.parent.push(CommentsPage,{item:this.item});
+    if(this.item.descendants>0){
+      this.navCtrl.parent.parent.push(CommentsPage,{item:this.item});
+    }
   }
 
   showAll(){
