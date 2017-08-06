@@ -21,7 +21,7 @@ export class ItemCardComponent implements OnInit{
   }
 
   ngOnInit(){
-    this.appService.getItemById(this.itemId).subscribe(
+    this.appService.getItemById(this.itemId.$value).subscribe(
       res=>{
         this.item=res;
       },

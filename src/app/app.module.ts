@@ -22,6 +22,9 @@ import {CardHeaderComponent} from "../components/card-header/card-header.compone
 import {SharedModule} from "./shared.module";
 import {UserProfilePage} from "../pages/user-profile/user-profile";
 import {InAppBrowser} from "@ionic-native/in-app-browser";
+import {AngularFireModule} from "angularfire2";
+import {AngularFireDatabaseModule} from "angularfire2/database/database.module";
+import {firebaseConfig} from "./config";
 
 @NgModule({
   declarations: [
@@ -44,7 +47,9 @@ import {InAppBrowser} from "@ionic-native/in-app-browser";
     HttpModule,
     SharedModule,
     IonicModule.forRoot(MyApp,{
-    })
+    }),
+    AngularFireModule.initializeApp(firebaseConfig),
+    AngularFireDatabaseModule,
   ],
   bootstrap: [IonicApp],
   entryComponents: [

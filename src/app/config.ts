@@ -4,5 +4,10 @@
 
 export const CONFIG = {
   title: "HACKER NEWS",
-  API_URL: "https://hacker-news.firebaseio.com"
-}
+  ITEMS_TO_LOAD:10
+};
+
+export const firebaseConfig = {
+  databaseURL: "https://hacker-news.firebaseio.com",
+  storageBucket: "hacker-news.appspot.com"
+};
